@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:ehcache="http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring
+    http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring/ehcache-spring-1.1.xsd" 
+	default-autowire="byName">
+	<bean name="openIdDao" class="com.moomanow.web.security.openid.dao.OpenIdDaoImpl"></bean>
+	<bean name="authenticationManager" class="org.springframework.security.authentication.ProviderManager"  >
+		<constructor-arg>
+			<list>
+					<bean class="org.mitre.openid.connect.client.OIDCAuthenticationProvider"></bean>
+<!-- 						<bean class="org.mitre.openid.connect.assertion.JWTBearerAuthenticationProvider"></bean> -->
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean name="hybridOpenIdClientService" class="com.moomanow.openid.connect.client.service.impl.HybridOpenIdClientService" >
+		<property name="issuerService" >
+			<bean class="org.mitre.openid.connect.client.service.impl.HybridIssuerService">
+				<property name="forceHttps" value="false"  ></property>
+				<property name="loginPageUrl" value="http://localhost:8080/MoomanowWeb/login/singleSignOn-end.htm"></property>
+			</bean>
+		</property>
+		<property name="serverConfigurationService">
+			<bean class="org.mitre.openid.connect.client.service.impl.HybridServerConfigurationService">
+				<property name="servers">
+					<map>
+						<entry key="test" >
+							<bean class="org.mitre.openid.connect.config.ServerConfiguration"></bean>
+						</entry>
+					</map>
+				</property>
+			
+			</bean>
+		</property>
+		<property name="authRequestUrlBuilder">
+			<bean class="org.mitre.openid.connect.client.service.impl.PlainAuthRequestUrlBuilder"></bean>
+		</property>
+		<property name="clientConfigurationService">
+			<bean class="org.mitre.openid.connect.client.service.impl.HybridClientConfigurationService">
+				<property name="clients">
+					<map>
+					</map>
+				</property>
+				<property name="template">
+					<bean class="org.mitre.oauth2.model.RegisteredClient">
+						<property name="redirectUris">
+							<set>
+								<value>http://localhost:8080/MoomanowWeb/login/singleSignOn-init.htm</value>
+							</set>
+						</property>
+					</bean>
+				</property>
+				<property name="registeredClientService">
+					<bean class="com.moomanow.web.security.openid.service.RegisteredClientServiceImpl"></bean>
+				</property>
+			</bean>
+			
+		</property>
+
+		<property name="validationServices">
+			<bean class="org.mitre.jwt.signer.service.impl.JWKSetCacheService" ></bean>
+		</property>
+		
+		
+	</bean>
+
+</beans>
