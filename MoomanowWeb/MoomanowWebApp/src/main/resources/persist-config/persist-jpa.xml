@@ -27,7 +27,7 @@
 <!-- </bean> -->
 
 <!-- <bean id="platformTransactionManager" class="org.springframework.transaction.jta.JtaTransactionManager"> -->
-<!-- <!-- 	<property name="entityManagerFactory" ref="entityManagerFactory"></property> --> -->
+<!-- 	<property name="entityManagerFactory" ref="entityManagerFactory"></property> -->
 <!-- </bean> -->
 
 <!-- </beans> -->
