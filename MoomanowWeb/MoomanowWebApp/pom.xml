@@ -8,7 +8,89 @@
 	<artifactId>MoomanowWebApp</artifactId>
 	<packaging>war</packaging>
 	<build>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/css</directory>
+				<targetPath>${project.build.directory}/css</targetPath>
+				<includes>
+					<include>**/*.css</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/main/img</directory>
+				<targetPath>${project.build.directory}/tempresource/resource/img</targetPath>
+				<includes>
+					<include>**/*.png</include>
+					<include>**/*.jpg</include>
+					<include>**/*.gif</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/main/fonts</directory>
+				<targetPath>${project.build.directory}/tempresource/resource/fonts</targetPath>
+				<includes>
+					<include>**/*.eot</include>
+					<include>**/*.ttf</include>
+					<include>**/*.woff</include>
+					<include>**/*.otf</include>
+					<include>**/*.svg</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
+			<plugin>
+				<groupId>nl.geodienstencentrum.maven</groupId>
+				<artifactId>sass-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-css</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>update-stylesheets</goal>
+						</goals>
+						<configuration>
+							<sassSourceDirectory>${basedir}/src/main/scss</sassSourceDirectory>
+							<destination>${project.build.directory}/css</destination>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.samaxes.maven</groupId>
+				<artifactId>minify-maven-plugin</artifactId>
+				<configuration>
+					<charset>UTF-8</charset>
+					<nosuffix>true</nosuffix>
+				</configuration>
+				<executions>
+					<execution>
+						<id>minify-css</id>
+						<goals>
+							<goal>minify</goal>
+						</goals>
+						<configuration>
+							<webappSourceDir>${project.build.directory}</webappSourceDir>
+							<cssSourceIncludes>
+								<include>**/*.css</include>
+							</cssSourceIncludes>
+							<webappTargetDir>${project.build.directory}/minify/resource</webappTargetDir>
+						</configuration>
+					</execution>
+					<execution>
+						<id>minify-javascript</id>
+						<goals>
+							<goal>minify</goal>
+						</goals>
+						<configuration>
+							<webappSourceDir>${basedir}/src/main</webappSourceDir>
+							<jsSourceIncludes>
+								<include>**/*.js</include>
+							</jsSourceIncludes>
+							<webappTargetDir>${project.build.directory}/minify/resource</webappTargetDir>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -30,6 +112,12 @@
 								<include>**/*.tag</include>
 								<include>**/*.jsp</include>
 							</includes>
+						</resource>
+						<resource>
+							<directory>${project.build.directory}/minify</directory>
+						</resource>
+						<resource>
+							<directory>${project.build.directory}/tempresource</directory>
 						</resource>
 						<resource>
 							<directory>src/main/webapp</directory>

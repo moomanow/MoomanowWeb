@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- main/login-init     usermanagement/user-init -->
-<meta http-equiv="refresh" content="0;URL=home/home-end.htm"> 
+<!-- <meta http-equiv="refresh" content="0;URL=home/home-end.htm">  -->
 <title>Loading MoomanowWeb ...</title>
 </head>
 <body>
