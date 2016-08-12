@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><tiles:getAsString name="title"/></title>
+    <title><tiles:getAsString name="title" ignore="true"/></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="${requestScope.cssBase}/bootstrap.min.css" rel="stylesheet">
@@ -36,9 +36,9 @@
  	<tiles:insertAttribute name="navigation"/> 
 	<tiles:insertAttribute name="header"/>
 	<div class="container">
-  		<tiles:insertAttribute name="body"/> 
+  		<tiles:insertAttribute name="body" ignore="true"/> 
   	</div>
- 	<tiles:insertAttribute name="banner"/> 
+<%--  	<tiles:insertAttribute name="banner"/>  --%>
  	<tiles:insertAttribute name="footer"/> 
  	
     <!-- jQuery -->

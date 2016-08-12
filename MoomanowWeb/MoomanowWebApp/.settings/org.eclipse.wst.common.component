@@ -22,9 +22,6 @@
         <dependent-module archiveName="moomanow-core-0.0.4.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-core/moomanow-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="moomanow-struts2-core-0.0.4.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-struts2-core/moomanow-struts2-core">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="moomanow-oauth2-0.0.4.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-oauth2/moomanow-oauth2">
             <dependency-type>uses</dependency-type>
         </dependent-module>
