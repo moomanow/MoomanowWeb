@@ -16,6 +16,9 @@
         <dependent-module archiveName="MoomanowCommon-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MoomanowCommon/MoomanowCommon">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="moomanow-struts2-core-0.0.4.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-struts2-core/moomanow-struts2-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="moomanow-process-0.0.4.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-process/moomanow-process">
             <dependency-type>uses</dependency-type>
         </dependent-module>
