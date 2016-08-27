@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.moomanow</groupId>
 		<artifactId>MoomanowWeb</artifactId>
-		<version>0.0.1</version>
+		<version>0.0.2</version>
 	</parent>
 	<artifactId>MoomanowWebApp</artifactId>
 	<packaging>war</packaging>
@@ -166,8 +166,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.struts</groupId>
-			<artifactId>struts2-tiles3-plugin</artifactId>
-			<version>2.5-BETA2</version>
+			<artifactId>struts2-tiles-plugin</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.struts</groupId>

@@ -7,7 +7,7 @@
 	</parent>
 	<groupId>com.moomanow</groupId>
 	<artifactId>MoomanowWeb</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<packaging>pom</packaging>
 	<modules>
 		<module>MoomanowCommon</module>
@@ -114,7 +114,7 @@
 			<dependency>
 				<groupId>com.moomanow</groupId>
 				<artifactId>moomanow</artifactId>
-				<version>0.0.4</version>
+				<version>0.0.5</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

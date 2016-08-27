@@ -5,6 +5,6 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<definition name="home.init" extends="baseLayout">
-		<put-attribute name="body" value="" />
+		<put-attribute name="body" value="/pages/home/home-main.jsp" />
 	</definition>
 </tiles-definitions>

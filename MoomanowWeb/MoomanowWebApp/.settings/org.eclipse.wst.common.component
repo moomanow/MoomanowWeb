@@ -7,25 +7,25 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/img"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/fonts"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="MoomanowService-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MoomanowService/MoomanowService">
+        <dependent-module archiveName="MoomanowService-0.0.2.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MoomanowService/MoomanowService">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="MoomanowDao-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MoomanowDao/MoomanowDao">
+        <dependent-module archiveName="MoomanowDao-0.0.2.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MoomanowDao/MoomanowDao">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="MoomanowCommon-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MoomanowCommon/MoomanowCommon">
+        <dependent-module archiveName="MoomanowCommon-0.0.2.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MoomanowCommon/MoomanowCommon">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="moomanow-struts2-core-0.0.4.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-struts2-core/moomanow-struts2-core">
+        <dependent-module archiveName="moomanow-struts2-core-0.0.5.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-struts2-core/moomanow-struts2-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="moomanow-process-0.0.4.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-process/moomanow-process">
+        <dependent-module archiveName="moomanow-process-0.0.5.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-process/moomanow-process">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="moomanow-core-0.0.4.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-core/moomanow-core">
+        <dependent-module archiveName="moomanow-core-0.0.5.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-core/moomanow-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="moomanow-oauth2-0.0.4.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-oauth2/moomanow-oauth2">
+        <dependent-module archiveName="moomanow-oauth2-0.0.5.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-oauth2/moomanow-oauth2">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/MoomanowWebApp/target/classes"/>

@@ -41,8 +41,8 @@
 <!-- 	    	<AppenderRef ref="console"/> -->
 <!-- 			<AppenderRef ref="stdout" /> -->
 <!-- 	    </Logger> -->
-		<Root level="error">
-<!-- 			<AppenderRef ref="console" /> -->
+		<Root level="info">
+			<AppenderRef ref="console" />
 			<AppenderRef ref="stdout" />
 <!-- 			<AppenderRef ref="databaseAppender" /> -->
 		</Root>

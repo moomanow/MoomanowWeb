@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC
-    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
 	<package name="com.moomanow.web.home.web.login" namespace="/home" extends="prj-default">
@@ -25,23 +25,24 @@
 			</interceptor-stack>
 		</interceptors>
 
-		<action name="*-start" class="{1}Action" method="start">
+		<action name="{}-start" class="{1}Action" method="start">
 			<interceptor-ref name="moduleScopeStack">
 				<param name="scope.type">start</param>
 			</interceptor-ref>
 			<result name="success" type="redirectAction">{1}-init</result>
 		</action>
 
-		<action name="*-end" class="{1}Action" method="end">
+		<action name="{}-end" class="{1}Action" method="end">
 			<interceptor-ref name="moduleScopeStack">
 				<param name="scope.type">end</param>
 			</interceptor-ref>
 			<result name="success" type="redirectAction">{1}-start</result>
 		</action>
 
-		<action name="home-*" class="homeAction" method="{1}">
+		<action name="home-{}" class="homeAction" method="{1}" >
 			<interceptor-ref name="homeScopeStack" />
 			<result name="home.init" type="tiles">home.init</result>
+			<allowed-methods>init</allowed-methods>
 		</action>
 	</package>
 </struts>

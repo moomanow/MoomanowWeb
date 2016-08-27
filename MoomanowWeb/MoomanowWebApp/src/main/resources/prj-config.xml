@@ -15,33 +15,32 @@
     http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring/ehcache-spring-1.1.xsd" 
 	default-autowire="byName">
 
-	<context:component-scan base-package="com.moomanaw.web">
-		<context:include-filter type="aspectj" expression="com.moomanaw.web..dao.*Impl"/>
+	<context:component-scan base-package="com.moomanow.web">
+		<context:include-filter type="aspectj" expression="com.moomanow.web..dao.*Impl"/>
 	</context:component-scan>
 	
-	<bean id="messageService"  class="com.moomanow.core.common.service.MessageServiceImpl" />
 	
 	<bean id="configDao"  class="com.moomanow.core.common.dao.ConfigDaoImpl"/>
 	<bean id="commonDao"  class="com.moomanow.core.common.dao.CommonJdbcDaoImpl"/>
 	<bean id="messageDao"  class="com.moomanow.core.common.dao.MessageDaoImpl" />
-	
+	<bean id="configService"  class="com.moomanow.core.common.service.ConfigServiceImpl" />
 	
 	<bean id="platformTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" scope="singleton">
 	  <property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<context:component-scan base-package="com.moomanaw.web">
-		<context:include-filter type="aspectj" expression="com.moomanaw.web..action.web.*Action"/>
+	<context:component-scan base-package="com.moomanow.web">
+		<context:include-filter type="aspectj" expression="com.moomanow.web..action.web.*Action"/>
 	</context:component-scan>
 	
-	<context:component-scan base-package="com.moomanaw.web">
-		<context:include-filter type="aspectj" expression="com.moomanaw.web..service.*Impl"/>
+	<context:component-scan base-package="com.moomanow.web">
+		<context:include-filter type="aspectj" expression="com.moomanow.web..service.*Impl"/>
 	</context:component-scan>
-	<context:component-scan base-package="com.moomanaw.web">
-		<context:include-filter type="aspectj" expression="com.moomanaw.web..process.*Impl"/>
+	<context:component-scan base-package="com.moomanow.web">
+		<context:include-filter type="aspectj" expression="com.moomanow.web..process.*Impl"/>
 	</context:component-scan>
-	<context:component-scan base-package="com.moomanaw.web">
-		<context:include-filter type="aspectj" expression="com.moomanaw.web..webservice.*Impl"/>
+	<context:component-scan base-package="com.moomanow.web">
+		<context:include-filter type="aspectj" expression="com.moomanow.web..webservice.*Impl"/>
 	</context:component-scan>
 	
 	<bean id="serviceClassAspect" class="com.moomanow.core.common.processhandler.ProcessHandler">
