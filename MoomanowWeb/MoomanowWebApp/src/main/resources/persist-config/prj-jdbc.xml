@@ -39,15 +39,15 @@
 	
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-		<property name="jdbcUrl" value="jdbc:hsqldb:mem:db;sql.syntax_mys=true" />
-<!-- 		<property name="jdbcUrl" value="jdbc:hsqldb:file:/tmp/oic;sql.syntax_mys=true" /> -->
+<!-- 		<property name="jdbcUrl" value="jdbc:hsqldb:mem:db;sql.syntax_mys=true" /> -->
+		<property name="jdbcUrl" value="jdbc:hsqldb:file:/tmp/oic;sql.syntax_mys=true" />
 		<property name="username" value="db" />
 		<property name="password" value="db" />
 	</bean>
 
-	<jdbc:initialize-database data-source="dataSource">
-		<jdbc:script location="classpath:/db/tables/hsql_database_tables.sql"/>
-	</jdbc:initialize-database>
+<!-- 	<jdbc:initialize-database data-source="dataSource"> -->
+<!-- 		<jdbc:script location="classpath:/db/tables/hsql_database_tables.sql"/> -->
+<!-- 	</jdbc:initialize-database> -->
 
 	<bean id="jpaAdapter" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
  		<property name="databasePlatform" value="org.eclipse.persistence.platform.database.HSQLPlatform" />

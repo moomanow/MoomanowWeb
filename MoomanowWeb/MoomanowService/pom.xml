@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.moomanow.web</groupId>
-    <artifactId>MoomanowWeb</artifactId>
-    <relativePath>..</relativePath>
-    <version>0.0.2</version>
-  </parent>
-  <artifactId>MoomanowService</artifactId>
-  <build>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.moomanow.web</groupId>
+		<artifactId>MoomanowWeb</artifactId>
+		<relativePath>..</relativePath>
+		<version>0.0.2</version>
+	</parent>
+	<artifactId>MoomanowService</artifactId>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -20,10 +21,18 @@
 			</plugin>
 		</plugins>
 	</build>
-  <dependencies>
-  	<dependency>
-  		<groupId>com.moomanow.web</groupId>
-  		<artifactId>MoomanowCommon</artifactId>
-  	</dependency>
-  </dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>com.moomanow.web</groupId>
+			<artifactId>MoomanowCommon</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>org.eclipse.persistence.core</artifactId>
+		</dependency>
+	</dependencies>
 </project>

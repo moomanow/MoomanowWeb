@@ -3,14 +3,8 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/css"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/img"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/fonts"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <dependent-module archiveName="MoomanowService-0.0.2.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MoomanowService/MoomanowService">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="MoomanowDao-0.0.2.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MoomanowDao/MoomanowDao">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="MoomanowCommon-0.0.2.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MoomanowCommon/MoomanowCommon">
