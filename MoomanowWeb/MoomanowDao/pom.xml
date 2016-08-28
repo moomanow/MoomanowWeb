@@ -21,7 +21,7 @@
 	</build>
   <dependencies>
   	<dependency>
-  		<groupId>com.moomanow</groupId>
+  		<groupId>com.moomanow.web</groupId>
   		<artifactId>MoomanowCommon</artifactId>
   	</dependency>
   	<dependency>

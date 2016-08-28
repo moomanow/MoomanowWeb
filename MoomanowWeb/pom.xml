@@ -53,22 +53,22 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>com.moomanow</groupId>
+				<groupId>com.moomanow.web</groupId>
 				<artifactId>MoomanowCommon</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.moomanow</groupId>
+				<groupId>com.moomanow.web</groupId>
 				<artifactId>MoomanowDao</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.moomanow</groupId>
+				<groupId>com.moomanow.web</groupId>
 				<artifactId>MoomanowService</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.moomanow</groupId>
+				<groupId>com.moomanow.web</groupId>
 				<artifactId>MoomanowWebApp</artifactId>
 				<version>${project.version}</version>
 				<type>war</type>
@@ -117,12 +117,6 @@
 				<version>0.0.5</version>
 				<type>pom</type>
 				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.moomanow</groupId>
-				<artifactId>MoomanowWeb</artifactId>
-				<version>${project.version}</version>
-				<type>pom</type>
 			</dependency>
 			<dependency>
 				<groupId>org.aspectj</groupId>

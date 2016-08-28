@@ -158,11 +158,11 @@
 	</build>
 	<dependencies>
 		<dependency>
-			<groupId>com.moomanow</groupId>
+			<groupId>com.moomanow.web</groupId>
 			<artifactId>MoomanowService</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.moomanow</groupId>
+			<groupId>com.moomanow.web</groupId>
 			<artifactId>MoomanowDao</artifactId>
 		</dependency>
 		<dependency>
@@ -194,7 +194,7 @@
 			<artifactId>eclipselink</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.moomanow</groupId>
+			<groupId>com.moomanow.web</groupId>
 			<artifactId>MoomanowCommon</artifactId>
 		</dependency>
 		<dependency>
