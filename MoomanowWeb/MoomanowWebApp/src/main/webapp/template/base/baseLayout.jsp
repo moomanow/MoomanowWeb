@@ -1,59 +1,66 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
-<%@taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-<jsp:include page="/template/projectInclude.jsp"/>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<jsp:include page="/template/projectInclude.jsp" />
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<title>Dashboard Template for Bootstrap</title>
 
-    <title><tiles:getAsString name="title" ignore="true"/></title>
+<!-- Bootstrap core CSS -->
+<link href="${requestScope.resourceBase}/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="${requestScope.cssBase}/bootstrap.min.css" rel="stylesheet">
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<link href="${requestScope.resourceBase}/bootstrap/3.3.7/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="${requestScope.cssBase}/landing-page.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="${requestScope.cssBase}/dashboard.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="${requestScope.cssBase}/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--[if lt IE 9]><script src="${requestScope.resourceBase}/bootstrap/3.3.7/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<script src="${requestScope.resourceBase}/bootstrap/3.3.7/assets/js/ie-emulation-modes-warning.js"></script>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
-
 <body>
- 	<tiles:insertAttribute name="navigation"/> 
-	<tiles:insertAttribute name="header"/>
-	<div class="container">
-  		<tiles:insertAttribute name="body" ignore="true"/> 
-  	</div>
-<%--  	<tiles:insertAttribute name="banner"/>  --%>
- 	<tiles:insertAttribute name="footer"/> 
- 	
-    <!-- jQuery -->
-    <script src="${requestScope.jsBase}/jquery.js"></script>
+	<tiles:insertAttribute name="navigation" />
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="${requestScope.jsBase}/bootstrap.min.js"></script>
 
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<tiles:insertAttribute name="sidebar" />
+			</div>
+
+
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<tiles:insertAttribute name="body" />
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		window.jQuery || document.write('<script src="${requestScope.resourceBase}/bootstrap/3.3.7/assets/js/vendor/jquery.min.js"><\/script>')
+	</script>
+	<script src="${requestScope.resourceBase}/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+	<script src="${requestScope.resourceBase}/bootstrap/3.3.7/assets/js/vendor/holder.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="${requestScope.resourceBase}/bootstrap/3.3.7/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
-
 </html>
-
-  
-  
-  
-  
-  
