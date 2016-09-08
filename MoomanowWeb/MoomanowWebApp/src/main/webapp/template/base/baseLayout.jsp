@@ -21,7 +21,7 @@
 <link href="${requestScope.resourceBase}/bootstrap/3.3.7/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="${requestScope.cssBase}/dashboard.css" rel="stylesheet">
+<link href="${requestScope.cssThemes}/dashboard.css" rel="stylesheet">
 
 <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <!--[if lt IE 9]><script src="${requestScope.resourceBase}/bootstrap/3.3.7/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->

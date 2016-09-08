@@ -9,15 +9,17 @@
 	String agiJSBase = null;
 	String agiCssBase = null;
 	String themesBase = null;
+	String resourceBase = null;
 %><%
 	appBase    	= request.getContextPath();
 	if(appBase.equals("/")){
 		appBase = "";
 	}
 	themesBase = "Standard";
+	resourceBase = appBase + "/resources";
 	request.setAttribute("themesBase", themesBase );
 	request.setAttribute("appBase", appBase );
-	request.setAttribute("resourceBase", appBase + "/resources" );
+	request.setAttribute("resourceBase", resourceBase );
 	request.setAttribute("imageBase", resourceBase + "/common/images");
 	request.setAttribute("jsBase", resourceBase + "/common/js");
 	request.setAttribute("cssBase", resourceBase + "/common/css");

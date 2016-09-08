@@ -37,10 +37,10 @@
 <!-- 	    	<AppenderRef ref="console"/> -->
 <!-- 			<AppenderRef ref="stdout" /> -->
 <!-- 	    </Logger> -->
-<!-- 	    <Logger name="org.kanomchan.core.common.processhandler.ProcessHandler.error.view.level" level="debug"> -->
-<!-- 	    	<AppenderRef ref="console"/> -->
+	    <Logger name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker" level="error">
+	    	<AppenderRef ref="console"/>
 <!-- 			<AppenderRef ref="stdout" /> -->
-<!-- 	    </Logger> -->
+	    </Logger>
 		<Root level="debug">
 			<AppenderRef ref="console" />
 <!-- 			<AppenderRef ref="stdout" /> -->
