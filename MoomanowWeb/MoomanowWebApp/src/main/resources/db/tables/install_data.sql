@@ -13,7 +13,8 @@ VALUES
 	(1001001, 'HOME', 'home-end', '/home', NULL, 'A', NULL, 'COM000000');
 INSERT INTO SYS_M_LABEL (LANGUAGE, PAGE, LABEL, DISPLAY_TEXT)
 VALUES
-	('ENG', 'MENU', 'HOME', 'HOME');
+	('ENG', 'MENU', 'HOME', 'HOME'),('ENG', 'MENU', 'HOME', 'หน้าหลัก');
+
 
 	
 COMMIT;
