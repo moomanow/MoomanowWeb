@@ -24,6 +24,7 @@
 	<bean id="commonDao"  class="com.moomanow.core.common.dao.CommonJdbcDaoImpl"/>
 	<bean id="messageDao"  class="com.moomanow.core.common.dao.MessageDaoImpl" />
 	<bean id="configService"  class="com.moomanow.core.common.service.ConfigServiceImpl" init-method="initConfig" />
+	<bean id="messageService" class="com.moomanow.core.common.service.MessageServiceImpl"/>
 	
 	<bean id="platformTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" scope="singleton">
 	  <property name="dataSource" ref="dataSource" />
@@ -54,11 +55,11 @@
 	 
 	 <property name="messageHandler" >
 	 	<bean class="com.moomanow.core.common.processhandler.BasicMessageHandler">
-	 	<property name="messageService">
-	 	<bean class="com.moomanow.core.common.service.MessageServiceImpl">
-	 	<property name="configDao" ref="configDao"/>
-	 	</bean>
-	 	</property>
+<!-- 	 	<property name="messageService"> -->
+<!-- 	 	<bean class="com.moomanow.core.common.service.MessageServiceImpl"> -->
+<!-- 	 	<property name="configDao" ref="configDao"/> -->
+<!-- 	 	</bean> -->
+<!-- 	 	</property> -->
 	 	</bean>
 	 </property>
 	</bean>

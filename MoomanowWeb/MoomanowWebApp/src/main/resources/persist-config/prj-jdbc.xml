@@ -15,6 +15,7 @@
 
 	<jdbc:initialize-database data-source="dataSource">
 		<jdbc:script location="classpath:/db/tables/hsql_database_tables.sql" />
+		<jdbc:script location="classpath:/db/tables/install_data.sql" />
 	</jdbc:initialize-database>
 
 	<bean id="jpaAdapter" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">

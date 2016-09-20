@@ -4,6 +4,8 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
+    <bean class="com.moomanow.web.common.web.struts.DBTextProvider" name="db-textprovider" type="com.opensymphony.xwork2.TextProvider" />
+    <constant name="struts.xworkTextProvider" value="db-textprovider" />
 	<constant name="struts.custom.i18n.resources" value="ApplicationResource" />
 
 	<constant name="struts.ui.theme" value="simple" />
@@ -14,10 +16,10 @@
     
     <constant name="struts.action.extension" value="htm,xhtml,,xml,json,action" />
 	
-<!-- 	<constant name="struts.convention.action.suffix" value="Action"/> -->
-<!-- 	<constant name="struts.convention.action.mapAllMatches" value="true"/> -->
-<!-- 	<constant name="struts.convention.default.parent.package" value="rest-default"/> -->
-<!-- 	<constant name="struts.convention.package.locators" value="rest.action.web"/> -->
+	<constant name="struts.convention.action.suffix" value="Action"/>
+	<constant name="struts.convention.action.mapAllMatches" value="true"/>
+	<constant name="struts.convention.default.parent.package" value="rest-default"/>
+	<constant name="struts.convention.package.locators" value="rest.action.web"/>
 	
 	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 	<constant name="struts.patternMatcher" value="regex" />
@@ -27,17 +29,26 @@
 	<constant name="struts.devMode" value="true" />
 	<!-- use Spring as Object Factory -->
 	<constant name="struts.objectFactory" value="spring" />
+<!-- 	<constant name="struts.xworkTextProvider" value="db-textprovider" /> -->
 	
 	<!-- Add packages here -->
 	<package name="prj-default" namespace="/" extends="struts-default,tiles-default,json-default">
 
 		<interceptors>
+		
+		
+			<interceptor name="menuInterceptor" class="com.moomanow.web.common.web.struts.interceptor.MenuInterceptor" />
+			
+			
 			<interceptor-stack name="prjStack">
 				
+				<interceptor-ref name="menuInterceptor" />
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 
 			<interceptor-stack name="guestStack">
+			
+				<interceptor-ref name="menuInterceptor" />
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 
