@@ -9,7 +9,7 @@
 
 		<put-attribute name="header" value="/template/base/header.jsp" />
 		<put-attribute name="navigation" value="/template/base/navigation.jsp" />
-
+		<put-attribute name="sidebar" value="/template/base/sidebar.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/template/base/footer.jsp" />
 
