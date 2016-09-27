@@ -18,7 +18,7 @@
 
 	<import resource="persist-config/prj-jdbc.xml"/>
 	<import resource="persist-config/prj-jpa.xml"/>
-	<import resource="prj-openid.xml"/>
+<!-- 	<import resource="prj-openid.xml"/> -->
 <!--     <import resource="prj-config-ejb.xml"/> -->
     <import resource="prj-config.xml"/>
 
