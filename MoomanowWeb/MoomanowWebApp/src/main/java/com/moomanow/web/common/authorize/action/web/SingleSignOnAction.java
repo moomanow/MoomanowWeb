@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.moomanow.core.common.bean.IMessage;
 import com.moomanow.core.common.constant.CommonConstant;
 import com.moomanow.core.common.processhandler.IProcessResult;
 import com.moomanow.core.common.service.ConfigService;
 import com.moomanow.web.security.authen.bean.LoginIO;
 import com.moomanow.web.security.authen.service.LoginService;
 import com.moomanow.web.struts2.action.BaseAction;
-import com.moomanow.web.struts2.bean.IMessage;
 
 @Component
 @Scope("prototype")
@@ -51,7 +51,7 @@ public class SingleSignOnAction extends BaseAction {
 				return CommonConstant.FORCE_TO_LOGGEDIN_WELCOME_PAGE;
 			}
 		}else{
-			messageList = (List<? extends IMessage>) serviceResult.getMessages();
+			messageList = serviceResult.getMessages();
 			return "loginPage";
 		}
 	}
