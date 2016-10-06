@@ -53,7 +53,7 @@ public class UserMenuServiceImpl implements UserMenuService {
 							if("U".equalsIgnoreCase(actionBean.getType()) ){
 								menuBean.setUrl(actionBean.getUrl());
 							}else{
-								menuBean.setUrl(actionBean.getNameSpace()+"/"+actionBean.getActionName()+".htm");
+								menuBean.setUrl(actionBean.getNameSpace()+"/"+actionBean.getActionName());
 							}
 						}
 						menuBean.setMenuName(menu.getMenuName());

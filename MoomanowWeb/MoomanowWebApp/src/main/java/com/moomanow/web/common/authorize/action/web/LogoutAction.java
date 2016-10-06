@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.moomanow.core.common.constant.CommonConstant;
 import com.moomanow.core.common.service.ConfigService;
 import com.moomanow.web.struts2.action.BaseAction;
 
@@ -35,9 +36,9 @@ public class LogoutAction extends BaseAction {
 	
 	public String logout() throws Exception{
 		httpServletRequest.getSession().invalidate();
-		url = configService.get("SSO_LOGOUT_URL");
-		return "redirect";
-//		return CommonConstant.FORCE_TO_LOGIN_PAGE;
+//		url = configService.get("SSO_LOGOUT_URL");
+//		return "redirect";
+		return CommonConstant.FORCE_TO_LOGIN_PAGE;
 	}
 
 }

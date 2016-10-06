@@ -39,6 +39,8 @@ public class LoginServiceImpl implements LoginService  {
 	private UserAuthorizeService userAuthorizeService;
 	@Autowired
 	private UserMenuService userMenuService;
+	@Autowired
+	private AuthenService authenService;
 	@Override
 	public IProcessResult<LoginIO> attemptAuthenticationAndPutDataSession(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws NonRollBackException, RollBackException {
 		LoginIO loginIO = new LoginIOBean();
@@ -67,6 +69,20 @@ public class LoginServiceImpl implements LoginService  {
 		} catch (AuthenticationException | IOException | ServletException e) {
 			throw new NonRollBackProcessException(ProMessageCode.ATZ2002,e);
 		}
+	}
+	@Override
+	public IProcessResult<LoginIO> performLoginAndPutDataSession(String user, String password) throws NonRollBackException, RollBackException {
+		LoginIO loginIO = new LoginIOBean();
+		IProcessResult<UserBean> serviceResult = authenService.login(user, password);
+		UserBean userBean =  serviceResult.getResult();
+		serviceResult = userAuthorizeService.addRolesUser(userBean);
+		userBean = serviceResult.getResult();
+		IProcessResult<MenuVO> serviceResultMenu = userMenuService.generateMenuList(serviceResult.getResult());
+		loginIO.setUserBean(userBean);
+		loginIO.setMenuVO(serviceResultMenu.getResult());
+		Map<String, Object> session = new HashMap<String, Object>();
+		loginIO.setSession(session);
+		return new ProcessResult<LoginIO>(loginIO);
 	}
 
 }

@@ -1,6 +1,10 @@
 package com.moomanow.web.security.authen.dao;
 
 import java.util.LinkedList;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import com.moomanow.core.common.bean.UserBean;
 import com.moomanow.core.common.constant.CommonMessageCode;
@@ -12,6 +16,8 @@ import com.moomanow.web.common.bean.User;
 
 
 public class UserDaoImpl extends JdbcCommonDaoImpl  implements UserDao {
+	@PersistenceContext(unitName="defaultPersistenceUnit")
+	private EntityManager manager;
 	
 	@Override
 	public UserBean findUserByUsername(String username) throws NonRollBackException , RollBackException {
@@ -51,6 +57,21 @@ public class UserDaoImpl extends JdbcCommonDaoImpl  implements UserDao {
 	@Override
 	public UserBean update(UserBean user) throws RollBackException, NonRollBackException {
 		return super.updateOnlyNotNullBasic(user);
+	}
+
+	@Override
+	public List<User> findAll() throws RollBackException, NonRollBackException {
+		return manager.createQuery("SELECT p FROM User p").getResultList();
+	}
+
+	@Override
+	public User save(User user) throws RollBackException, NonRollBackException {
+		return manager.merge(user);
+	}
+
+	@Override
+	public User find(String id) throws RollBackException, NonRollBackException {
+		return manager.find(User.class, id);
 	}
 	
 }

@@ -9,7 +9,7 @@
     <include file="prj-struts.xml"/>
     
     <!-- All Struts Xml in project -->
-    <include file="com/moomanow/web/common/authorize/action/web/login-struts.xml"></include>
-    <include file="com/moomanow/web/common/authorize/action/web/logout-struts.xml"></include>
+    <include file="com/moomanow/web/common/authorize/action/web/authen-struts.xml"></include>
     <include file="com/moomanow/web/home/action/web/home-struts.xml"></include>
+    <include file="com/moomanow/web/common/user/action/web/r-struts.xml"></include>
 </struts>

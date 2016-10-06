@@ -39,7 +39,8 @@ stack.setValue("#attr['menuList']", o, false);
 				<li class="dropdown">
 					<a href='<s:url value="%{url}"/>' class="dropdown-toggle" data-toggle="dropdown" data-target="#"> 
 					<s:property value='childMenu!=null&&childMenu.type=="T"'/>
-						<s:property value='%{label["MENU_"+menuName ]!=null?label["MENU_"+menuName ]:menuName}' /> 
+					<s:text name='%{"MENU_"+menuName}'></s:text>
+<%-- 						<s:property value='%{label["MENU_"+menuName ]!=null?label["MENU_"+menuName ]:menuName}' />  --%>
 						<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="dropdown-menu">
@@ -50,7 +51,7 @@ stack.setValue("#attr['menuList']", o, false);
 				</li>
 			</s:if>
 			<s:else>
-				<li ><a href='<s:url value="%{url}" />'><s:property value='%{label["MENU_"+menuName ]!=null?label["MENU_"+menuName ]:menuName}' /></a></li>
+				<li ><a href='<s:url value="%{url}" />'><s:text name='%{"MENU_"+menuName}'></s:text></a></li>
 			</s:else>
 		</s:else>
 	</s:else>

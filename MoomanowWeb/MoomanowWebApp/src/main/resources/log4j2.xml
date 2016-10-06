@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
 	<properties>
-		<property name="logDir">/var/log/moomanow/web</property>
+		<property name="logDir">log/moomanow/web</property>
 		<property name="path_sep">/</property>
 		<property name="systemName">MoomanowWeb</property>
 		<property name="ConversionPattern"     >%d{yyyy-MM-dd@HH:mm:ss.SSS}\t%-5p\t[${systemName}]\t[%X{SESSION_ID}]\t%X{USER_NAME}\t%m\t(%13F\:%M\:%L)%n</property>

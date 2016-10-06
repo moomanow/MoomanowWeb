@@ -12,4 +12,6 @@ import com.moomanow.web.security.authen.bean.LoginIO;
 public interface LoginService {
 	public IProcessResult<LoginIO> attemptAuthenticationAndPutDataSession(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) throws NonRollBackException,RollBackException;
 
+	public IProcessResult<LoginIO> performLoginAndPutDataSession(String user, String password)throws NonRollBackException,RollBackException;
+
 }

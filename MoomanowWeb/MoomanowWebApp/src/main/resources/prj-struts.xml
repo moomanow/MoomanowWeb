@@ -12,9 +12,9 @@
 	<constant name="struts.enable.SlashesInActionNames" value="true" />
 	
 	<constant name="struts.mapper.class" value="org.apache.struts2.dispatcher.mapper.PrefixBasedActionMapper" />
-    <constant name="struts.mapper.prefixMapping" value="/rest:rest,:struts"/>
+    <constant name="struts.mapper.prefixMapping" value="/r/:rest,:struts"/>
     
-    <constant name="struts.action.extension" value="htm,xhtml,,xml,json,action" />
+    <constant name="struts.action.extension" value=",xhtml,htm,xml,json,action" />
 	
 	<constant name="struts.convention.action.suffix" value="Action"/>
 	<constant name="struts.convention.action.mapAllMatches" value="true"/>
@@ -32,7 +32,7 @@
 <!-- 	<constant name="struts.xworkTextProvider" value="db-textprovider" /> -->
 	
 	<!-- Add packages here -->
-	<package name="prj-default" namespace="/" extends="struts-default,tiles-default,json-default">
+	<package name="prj-default" namespace="/" extends="struts-default,tiles-default,json-default,rest-default">
 
 		<interceptors>
 		
@@ -63,8 +63,8 @@
 			</result>
 			<result name="message" type="tiles">common.message</result>
 			<result name="FORCE_TO_LOGGEDIN_WELCOME_PAGE" type="redirectAction">
-				<param name="actionName">shop-end</param>
-				<param name="namespace">/shop</param>
+				<param name="actionName">home-end</param>
+				<param name="namespace">/home</param>
 				<!-- FORCE_TO_LOGGEDIN_WELCOME_PAGE</result> -->
 			</result>
 			<result name="FORCE_TO_NEXT_URL" type="redirect">${nextUrl}</result>
@@ -75,8 +75,8 @@
 			</result>
 			
 			<result name="FORCE_TO_LOGIN_PAGE" type="redirectAction">
-				<param name="actionName">singleSignOn-end</param>
-				<param name="namespace">/login</param>
+				<param name="actionName">login-end</param>
+				<param name="namespace">/authen</param>
 			</result>
 			
 			<result name="errorPage" type="tiles">

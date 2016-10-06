@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC
-    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-	<package name="com.moomanow.web.common.authorize.action.web.login" namespace="/login" extends="prj-default">
+	<package name="com.moomanow.web.common.authorize.action.web.login" namespace="/authen" extends="prj-default">
 
 		<interceptors>
 			<interceptor-stack name="moduleScopeStack">
@@ -16,6 +16,16 @@
 			</interceptor-stack>
 
 			<interceptor-stack name="loginScopeStack">
+				<interceptor-ref name="scope">
+					<param name="session">
+					username,password
+					</param>
+					<param name="autoCreateSession">true</param>
+				</interceptor-ref>
+				<interceptor-ref name="guestStack" />
+			</interceptor-stack>
+
+			<interceptor-stack name="logoutScopeStack">
 				<interceptor-ref name="scope">
 					<param name="session">
 					</param>
@@ -44,37 +54,32 @@
 
 		</interceptors>
 
-		<action name="*-start" class="{1}Action" method="start">
+		<action name="{}-start" class="{1}Action" method="start">
 			<interceptor-ref name="moduleScopeStack">
 				<param name="scope.type">start</param>
 			</interceptor-ref>
 			<result name="success" type="redirectAction">{1}-init</result>
 		</action>
 
-		<action name="*-end" class="{1}Action" method="end">
+		<action name="{}-end" class="{1}Action" method="end">
 			<interceptor-ref name="moduleScopeStack">
 				<param name="scope.type">end</param>
 			</interceptor-ref>
 			<result name="success" type="redirectAction">{1}-start</result>
 		</action>
 
-		<!-- <action name="login-{method}" class="loginAction" method="{1}"> -->
-		<!-- <interceptor-ref name="loginScopeStack" /> -->
-		<!-- <result name="loginPage" type="tiles">login.init</result> -->
-		<!-- </action> -->
-		<action name="singleSignOn-start" class="singleSignOnAction" method="start">
-			<interceptor-ref name="moduleScopeStack" />
-			<result name="success" type="redirectAction">
-				<param name="actionName">singleSignOn-init</param>
-				<param name="identifier">${identifier}</param>
-			</result>
-
-
+		<action name="login-{}" class="loginAction" method="{1}">
+			<interceptor-ref name="loginScopeStack" />
+			<result name="loginPage" type="tiles">login.init</result>
+			<allowed-methods>init,login
+			</allowed-methods>
 		</action>
 
-		<action name="singleSignOn-*" class="singleSignOnAction" method="{1}">
-			<interceptor-ref name="singleSignOnScopeStack" />
-			<!-- <result name="loginPage" type="tiles">login.init</result> -->
+
+		<action name="logout-{}" class="logoutAction" method="{1}">
+			<interceptor-ref name="logoutScopeStack" />
+			<allowed-methods>init,logout
+			</allowed-methods>
 		</action>
 	</package>
 </struts>

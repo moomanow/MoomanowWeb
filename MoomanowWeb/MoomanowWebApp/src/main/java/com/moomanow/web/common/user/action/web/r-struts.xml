@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package name="com.moomanow.web.common.user.action.web.login" namespace="/r" extends="prj-default">
+
+
+
+		<action name="user" class="userAction">
+			<result name="index" type="tiles">user.index</result>
+			<result name="update" type="tiles">user.update</result>
+			<result name="show" type="tiles">user.show</result>
+			<result name="destroy" type="tiles">user.destroy</result>
+			<result name="create" type="tiles">user.create</result>
+			<result name="edit" type="tiles">user.edit</result>
+		</action>
+	</package>
+</struts>
