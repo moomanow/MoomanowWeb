@@ -10,18 +10,6 @@
         <dependent-module archiveName="MoomanowCommon-0.0.2.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MoomanowCommon/MoomanowCommon">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="moomanow-struts2-core-0.0.5.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-struts2-core/moomanow-struts2-core">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="moomanow-core-0.0.5.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-core/moomanow-core">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="moomanow-process-0.0.5.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-process/moomanow-process">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="moomanow-oauth2-0.0.5.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/moomanow-oauth2/moomanow-oauth2">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="java-output-path" value="/MoomanowWebApp/target/classes"/>
         <property name="context-root" value="MoomanowWeb"/>
     </wb-module>
