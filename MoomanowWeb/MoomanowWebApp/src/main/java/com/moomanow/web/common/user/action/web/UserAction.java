@@ -10,13 +10,13 @@ import org.springframework.stereotype.Component;
 
 import com.moomanow.core.common.processhandler.IProcessResult;
 import com.moomanow.web.common.bean.User;
-import com.moomanow.web.struts2.action.BaseRestAction;
+import com.moomanow.web.struts2.action.SuperBaseRestAction;
 import com.moomanow.web.user.service.UserService;
 import com.opensymphony.xwork2.ModelDriven;
 
 @Component
 @Scope("prototype")
-public class UserAction extends BaseRestAction implements ModelDriven<Object> {
+public class UserAction extends SuperBaseRestAction implements ModelDriven<Object> {
 
 	@Autowired
 	private UserService userService; 
