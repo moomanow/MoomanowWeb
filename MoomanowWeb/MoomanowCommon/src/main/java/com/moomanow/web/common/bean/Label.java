@@ -6,23 +6,31 @@ import java.sql.Timestamp;
 
 
 /**
- * The persistent class for the SYS_M_USER_MAP_ROLE database table.
+ * The persistent class for the SYS_M_LABEL database table.
  * 
  */
 @Entity
-@Table(name="SYS_M_USER_MAP_ROLE")
-@NamedQuery(name="UserMapRole.findAll", query="SELECT u FROM UserMapRole u")
-public class UserMapRole implements Serializable {
+@Table(name="SYS_M_LABEL")
+@NamedQuery(name="Label.findAll", query="SELECT l FROM Label l")
+public class Label implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	private UserMapRolePK id;
+	private LabelPK id;
 
 	@Column(name="CREATE_DATE")
 	private Timestamp createDate;
 
 	@Column(name="CREATE_USER")
 	private String createUser;
+
+	@Lob
+	@Column(name="`DESC`")
+	private String desc;
+
+	@Lob
+	@Column(name="DISPLAY_TEXT")
+	private String displayText;
 
 	private String status;
 
@@ -32,14 +40,14 @@ public class UserMapRole implements Serializable {
 	@Column(name="UPDATE_USER")
 	private String updateUser;
 
-	public UserMapRole() {
+	public Label() {
 	}
 
-	public UserMapRolePK getId() {
+	public LabelPK getId() {
 		return this.id;
 	}
 
-	public void setId(UserMapRolePK id) {
+	public void setId(LabelPK id) {
 		this.id = id;
 	}
 
@@ -57,6 +65,22 @@ public class UserMapRole implements Serializable {
 
 	public void setCreateUser(String createUser) {
 		this.createUser = createUser;
+	}
+
+	public String getDesc() {
+		return this.desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public String getDisplayText() {
+		return this.displayText;
+	}
+
+	public void setDisplayText(String displayText) {
+		this.displayText = displayText;
 	}
 
 	public String getStatus() {

@@ -6,23 +6,34 @@ import java.sql.Timestamp;
 
 
 /**
- * The persistent class for the SYS_M_USER_MAP_ROLE database table.
+ * The persistent class for the SYS_M_CONFIG database table.
  * 
  */
 @Entity
-@Table(name="SYS_M_USER_MAP_ROLE")
-@NamedQuery(name="UserMapRole.findAll", query="SELECT u FROM UserMapRole u")
-public class UserMapRole implements Serializable {
+@Table(name="SYS_M_CONFIG")
+@NamedQuery(name="Config.findAll", query="SELECT c FROM Config c")
+public class Config implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private UserMapRolePK id;
+	@Id
+	@Column(name="CONFIG_KEY")
+	private String configKey;
+
+	@Column(name="CONFIG_GROUP")
+	private String configGroup;
+
+	@Lob
+	@Column(name="CONFIG_VALUE")
+	private String configValue;
 
 	@Column(name="CREATE_DATE")
 	private Timestamp createDate;
 
 	@Column(name="CREATE_USER")
 	private String createUser;
+
+	@Column(name="`DESC`")
+	private String desc;
 
 	private String status;
 
@@ -32,15 +43,31 @@ public class UserMapRole implements Serializable {
 	@Column(name="UPDATE_USER")
 	private String updateUser;
 
-	public UserMapRole() {
+	public Config() {
 	}
 
-	public UserMapRolePK getId() {
-		return this.id;
+	public String getConfigKey() {
+		return this.configKey;
 	}
 
-	public void setId(UserMapRolePK id) {
-		this.id = id;
+	public void setConfigKey(String configKey) {
+		this.configKey = configKey;
+	}
+
+	public String getConfigGroup() {
+		return this.configGroup;
+	}
+
+	public void setConfigGroup(String configGroup) {
+		this.configGroup = configGroup;
+	}
+
+	public String getConfigValue() {
+		return this.configValue;
+	}
+
+	public void setConfigValue(String configValue) {
+		this.configValue = configValue;
 	}
 
 	public Timestamp getCreateDate() {
@@ -57,6 +84,14 @@ public class UserMapRole implements Serializable {
 
 	public void setCreateUser(String createUser) {
 		this.createUser = createUser;
+	}
+
+	public String getDesc() {
+		return this.desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 
 	public String getStatus() {

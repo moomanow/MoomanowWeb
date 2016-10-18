@@ -1,5 +1,6 @@
 package com.moomanow.web.common.user.action.web;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.apache.struts2.rest.DefaultHttpHeaders;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 import com.moomanow.core.common.processhandler.IProcessResult;
 import com.moomanow.web.common.bean.User;
 import com.moomanow.web.struts2.action.SuperBaseRestAction;
+import com.moomanow.web.struts2.bean.Button;
 import com.moomanow.web.user.service.UserService;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -48,8 +50,21 @@ public class UserAction extends SuperBaseRestAction implements ModelDriven<Objec
 //			| GET         | /user/new            | user.editNew |                |
 //			+-------------+----------------------+--------------+----------------+
 	public HttpHeaders index()throws Exception {
-		out = userService.findAll();
-		return new DefaultHttpHeaders("index").disableCaching();
+		IProcessResult<Collection<User>> processResult = userService.findAll();
+		if(processResult.isSuccess()){
+			out = processResult;
+			return new DefaultHttpHeaders("index").disableCaching();
+		}else{
+			messageList = processResult.getMessages();
+			buttonList = new ArrayList<>();
+			Button button = new Button();
+			button.setAction("home-init");
+			button.setNamespace("/home");
+			button.setName("Home");
+			buttonList.add(button);
+			return new DefaultHttpHeaders("message").disableCaching();
+		}
+		
 	}
 	public HttpHeaders editNew()throws Exception {
 		out = new User();

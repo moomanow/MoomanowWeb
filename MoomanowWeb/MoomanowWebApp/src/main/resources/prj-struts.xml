@@ -12,7 +12,7 @@
 	<constant name="struts.enable.SlashesInActionNames" value="true" />
 	
 	<constant name="struts.mapper.class" value="org.apache.struts2.dispatcher.mapper.PrefixBasedActionMapper" />
-    <constant name="struts.mapper.prefixMapping" value="/r/:rest,:struts"/>
+    <constant name="struts.mapper.prefixMapping" value="/r:rest,:struts"/>
     
     <constant name="struts.action.extension" value=",xhtml,htm,xml,json,action" />
 	

@@ -6,23 +6,30 @@ import java.sql.Timestamp;
 
 
 /**
- * The persistent class for the SYS_M_USER_MAP_ROLE database table.
+ * The persistent class for the SYS_M_ROLE database table.
  * 
  */
 @Entity
-@Table(name="SYS_M_USER_MAP_ROLE")
-@NamedQuery(name="UserMapRole.findAll", query="SELECT u FROM UserMapRole u")
-public class UserMapRole implements Serializable {
+@Table(name="SYS_M_ROLE")
+@NamedQuery(name="Role.findAll", query="SELECT r FROM Role r")
+public class Role implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private UserMapRolePK id;
+	@Id
+	@Column(name="ID_ROLE")
+	private String idRole;
 
 	@Column(name="CREATE_DATE")
 	private Timestamp createDate;
 
 	@Column(name="CREATE_USER")
 	private String createUser;
+
+	@Column(name="`DESC`")
+	private String desc;
+
+	@Column(name="ROLE_NAME")
+	private String roleName;
 
 	private String status;
 
@@ -32,15 +39,15 @@ public class UserMapRole implements Serializable {
 	@Column(name="UPDATE_USER")
 	private String updateUser;
 
-	public UserMapRole() {
+	public Role() {
 	}
 
-	public UserMapRolePK getId() {
-		return this.id;
+	public String getIdRole() {
+		return this.idRole;
 	}
 
-	public void setId(UserMapRolePK id) {
-		this.id = id;
+	public void setIdRole(String idRole) {
+		this.idRole = idRole;
 	}
 
 	public Timestamp getCreateDate() {
@@ -57,6 +64,22 @@ public class UserMapRole implements Serializable {
 
 	public void setCreateUser(String createUser) {
 		this.createUser = createUser;
+	}
+
+	public String getDesc() {
+		return this.desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public String getRoleName() {
+		return this.roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
 	}
 
 	public String getStatus() {

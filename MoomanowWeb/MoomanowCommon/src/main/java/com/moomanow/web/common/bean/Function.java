@@ -6,23 +6,34 @@ import java.sql.Timestamp;
 
 
 /**
- * The persistent class for the SYS_M_USER_MAP_ROLE database table.
+ * The persistent class for the SYS_M_FUNCTION database table.
  * 
  */
 @Entity
-@Table(name="SYS_M_USER_MAP_ROLE")
-@NamedQuery(name="UserMapRole.findAll", query="SELECT u FROM UserMapRole u")
-public class UserMapRole implements Serializable {
+@Table(name="SYS_M_FUNCTION")
+@NamedQuery(name="Function.findAll", query="SELECT f FROM Function f")
+public class Function implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private UserMapRolePK id;
+	@Id
+	@Column(name="ID_FUNCTION")
+	private String idFunction;
 
 	@Column(name="CREATE_DATE")
 	private Timestamp createDate;
 
 	@Column(name="CREATE_USER")
 	private String createUser;
+
+	@Column(name="`DESC`")
+	private String desc;
+
+	@Column(name="ID_PARENT")
+	private String idParent;
+
+	private short level;
+
+	private String name;
 
 	private String status;
 
@@ -32,15 +43,15 @@ public class UserMapRole implements Serializable {
 	@Column(name="UPDATE_USER")
 	private String updateUser;
 
-	public UserMapRole() {
+	public Function() {
 	}
 
-	public UserMapRolePK getId() {
-		return this.id;
+	public String getIdFunction() {
+		return this.idFunction;
 	}
 
-	public void setId(UserMapRolePK id) {
-		this.id = id;
+	public void setIdFunction(String idFunction) {
+		this.idFunction = idFunction;
 	}
 
 	public Timestamp getCreateDate() {
@@ -57,6 +68,38 @@ public class UserMapRole implements Serializable {
 
 	public void setCreateUser(String createUser) {
 		this.createUser = createUser;
+	}
+
+	public String getDesc() {
+		return this.desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public String getIdParent() {
+		return this.idParent;
+	}
+
+	public void setIdParent(String idParent) {
+		this.idParent = idParent;
+	}
+
+	public short getLevel() {
+		return this.level;
+	}
+
+	public void setLevel(short level) {
+		this.level = level;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getStatus() {
