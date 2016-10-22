@@ -55,7 +55,7 @@
 					<bean class="org.mitre.oauth2.model.RegisteredClient">
 						<property name="redirectUris">
 							<set>
-								<value>http://localhost:8080/MoomanowWeb/login/singleSignOn-init.htm</value>
+								<value>http://localhost:8080/MoomanowWeb/authen/singleSignOn-init</value>
 							</set>
 						</property>
 					</bean>

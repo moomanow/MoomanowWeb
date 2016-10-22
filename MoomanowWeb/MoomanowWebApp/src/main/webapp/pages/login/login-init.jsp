@@ -15,4 +15,5 @@
 	<s:password name="password" />
 	<s:submit />
 </s:form>
+<s:a namespace="/authen" action="singleSignOn-end">singleSignOn</s:a>
 </div>
