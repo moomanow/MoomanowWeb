@@ -6,7 +6,7 @@
 		<groupId>com.moomanow.web</groupId>
 		<artifactId>MoomanowWeb</artifactId>
 		<relativePath>..</relativePath>
-		<version>0.0.3</version>
+		<version>0.0.4</version>
 	</parent>
 	<artifactId>MoomanowService</artifactId>
 	<build>
