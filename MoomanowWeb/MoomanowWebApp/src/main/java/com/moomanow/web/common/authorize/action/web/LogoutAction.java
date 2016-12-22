@@ -36,9 +36,9 @@ public class LogoutAction extends BaseAction {
 	
 	public String logout() throws Exception{
 		httpServletRequest.getSession().invalidate();
-//		url = configService.get("SSO_LOGOUT_URL");
-//		return "redirect";
-		return CommonConstant.FORCE_TO_LOGIN_PAGE;
+		url = configService.get("LOGOUT_URL");
+		return "redirect";
+//		return CommonConstant.FORCE_TO_LOGIN_PAGE;
 	}
 
 }

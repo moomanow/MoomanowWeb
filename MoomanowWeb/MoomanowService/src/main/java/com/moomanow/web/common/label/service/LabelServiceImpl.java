@@ -52,8 +52,13 @@ public class LabelServiceImpl implements LabelService  {
 	
 	@Override
 	@PostConstruct
-	public void refresh()throws RollBackException ,NonRollBackException {
-		labelMap = labelDao.getLabelStrMap();
+	public void refresh(){
+		try {
+			labelMap = labelDao.getLabelStrMap();
+		} catch (RollBackException | NonRollBackException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
