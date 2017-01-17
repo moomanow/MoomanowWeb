@@ -20,6 +20,7 @@ import com.moomanow.core.common.processhandler.IProcessResult;
 import com.moomanow.openid.connect.client.service.OpenIdClientService;
 import com.moomanow.web.common.constant.ProMessageCode;
 import com.moomanow.web.common.process.bean.ProcessResult;
+import com.moomanow.web.security.authen.bean.IUserDefault;
 import com.moomanow.web.security.authen.bean.LoginIO;
 import com.moomanow.web.security.authen.bean.LoginIOBean;
 import com.moomanow.web.security.authen.bean.MenuVO;
@@ -83,6 +84,12 @@ public class LoginServiceImpl implements LoginService  {
 		Map<String, Object> session = new HashMap<String, Object>();
 		loginIO.setSession(session);
 		return new ProcessResult<LoginIO>(loginIO);
+	}
+	@Override
+	public IProcessResult<LoginIO> performLoginAndPutDataSession(UserBean userBean, IUserDefault userDefault)
+			throws NonRollBackException, RollBackException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
