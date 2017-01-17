@@ -21,7 +21,7 @@
 	
 	
 	<bean id="configDao"  class="com.moomanow.core.common.dao.ConfigDaoImpl"/>
-	<bean id="commonDao"  class="com.moomanow.core.common.dao.CommonJdbcDaoImpl"/>
+	<bean id="commonDao"  class="com.moomanow.core.common.dao.CommonDaoImpl"/>
 	<bean id="messageDao"  class="com.moomanow.core.common.dao.MessageDaoImpl" />
 	<bean id="configService"  class="com.moomanow.core.common.service.ConfigServiceImpl" init-method="initConfig" />
 	<bean id="messageService" class="com.moomanow.core.common.service.MessageServiceImpl"/>

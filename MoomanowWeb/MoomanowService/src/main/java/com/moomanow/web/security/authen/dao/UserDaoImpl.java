@@ -6,16 +6,21 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.eclipse.persistence.indirection.IndirectContainer;
+
 import com.moomanow.core.common.bean.UserBean;
 import com.moomanow.core.common.constant.CommonMessageCode;
+import com.moomanow.core.common.dao.CommonDaoImpl;
 import com.moomanow.core.common.dao.JdbcCommonDaoImpl;
 import com.moomanow.core.common.exception.NonRollBackException;
 import com.moomanow.core.common.exception.RollBackException;
 import com.moomanow.core.common.exception.RollBackProcessException;
+import com.moomanow.web.common.bean.Phone;
+import com.moomanow.web.common.bean.PhoneCode;
 import com.moomanow.web.common.bean.User;
 
 
-public class UserDaoImpl extends JdbcCommonDaoImpl  implements UserDao {
+public class UserDaoImpl extends CommonDaoImpl  implements UserDao {
 	@PersistenceContext(unitName="defaultPersistenceUnit")
 	private EntityManager manager;
 	
@@ -25,7 +30,7 @@ public class UserDaoImpl extends JdbcCommonDaoImpl  implements UserDao {
 //		manager.createQuery("User.findAll");
 		LinkedList<Object> params = new LinkedList<Object>();
         params.add( username );
-        User userBean = nativeQueryOneRow(sql, User.class, params.toArray());
+        User userBean = (User) nativeQuerySingleResult(sql, params.toArray());
 		if(userBean ==null)
 			throw new RollBackProcessException(CommonMessageCode.COM0004);
 		return userBean;
@@ -36,7 +41,7 @@ public class UserDaoImpl extends JdbcCommonDaoImpl  implements UserDao {
 		String sql = "SELECT * FROM SYS_M_USER WHERE ID_USER = ? ";
 		LinkedList<Object> params = new LinkedList<Object>();
         params.add( id );
-		User userBean = nativeQueryOneRow(sql, User.class, params.toArray());
+		User userBean = (User) nativeQuerySingleResult(sql, User.class, params.toArray());
 		if(userBean ==null)
 			throw new RollBackProcessException(CommonMessageCode.COM0004);
 		return userBean;
@@ -51,13 +56,13 @@ public class UserDaoImpl extends JdbcCommonDaoImpl  implements UserDao {
 
 	@Override
 	public UserBean changePassword(UserBean userBean) throws RollBackException, NonRollBackException {
-		return super.updateOnlyNotNullBasic(userBean);
+		return super.update(userBean);
 	}
 
 
 	@Override
 	public UserBean update(UserBean user) throws RollBackException, NonRollBackException {
-		return super.updateOnlyNotNullBasic(user);
+		return super.update(user);
 	}
 
 	@Override

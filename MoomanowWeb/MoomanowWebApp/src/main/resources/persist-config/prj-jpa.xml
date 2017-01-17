@@ -8,7 +8,6 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="packagesToScan" >
 			<list>
 				<value>com.moomanow.web.common.bean</value>
-<!-- 				<value>com.jm.oauth2</value> -->
 			</list>
 		</property>
 
