@@ -11,18 +11,18 @@ import com.moomanow.core.common.exception.RollBackProcessException;
 import com.moomanow.core.common.processhandler.IProcessResult;
 import com.moomanow.web.common.constant.ProMessageCode;
 import com.moomanow.web.common.process.bean.ProcessResult;
-import com.moomanow.web.security.authen.dao.UserDao;
+import com.moomanow.web.security.authen.dao.UserOpenIdDao;
 
 public class AuthenServiceImpl implements AuthenService {
 
 	@Autowired
-	private UserDao userDao;
+	private UserOpenIdDao userOpenIdDao;
 	@Autowired
 	@Qualifier("md5EncryptService")
 	private EncryptService encryptService;
 	@Override
 	public IProcessResult<UserBean> login(String username, String password)throws NonRollBackException, RollBackException {
-		UserBean userBean = userDao.findUserByUsername(username);
+		UserBean userBean = userOpenIdDao.findUserByUsername(username);
 		String passwordEncrypt = encryptService.encryptString(password);
 		if(userBean==null||!userBean.getPassword().equals(passwordEncrypt)){
 			throw new RollBackProcessException(ProMessageCode.ATC2001);

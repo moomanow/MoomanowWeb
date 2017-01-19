@@ -24,7 +24,7 @@ import com.moomanow.web.security.authen.bean.IUserDefault;
 import com.moomanow.web.security.authen.bean.LoginIO;
 import com.moomanow.web.security.authen.bean.LoginIOBean;
 import com.moomanow.web.security.authen.bean.MenuVO;
-import com.moomanow.web.security.authen.dao.UserDao;
+import com.moomanow.web.security.authen.dao.UserOpenIdDao;
 import com.moomanow.web.security.authorize.service.UserAuthorizeService;
 import com.moomanow.web.security.authorize.service.UserMenuService;
 
@@ -35,7 +35,7 @@ public class LoginServiceImpl implements LoginService  {
 	private OpenIdClientService openIdClientService;
 	
 	@Autowired
-	private UserDao userDao;
+	private UserOpenIdDao userOpenIdDao;
 	@Autowired
 	private UserAuthorizeService userAuthorizeService;
 	@Autowired
@@ -57,7 +57,7 @@ public class LoginServiceImpl implements LoginService  {
 					sub = (String) principalMap.get("sub");
 					
 				}
-				UserBean userBean =  userDao.findUserByIdUser(Long.parseLong(sub));
+				UserBean userBean =  userOpenIdDao.findUserByIdUser(Long.parseLong(sub));
 				IProcessResult<UserBean> serviceResult = userAuthorizeService.addRolesUser(userBean);
 				userBean = serviceResult.getResult();
 				IProcessResult<MenuVO> serviceResultMenu = userMenuService.generateMenuList(serviceResult.getResult());

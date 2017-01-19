@@ -20,7 +20,7 @@ import com.moomanow.web.security.openid.bean.ClientDetail;
 
 
 public class OpenIdDaoImpl extends JdbcCommonDaoImpl implements OpenIdDao {
-	private final String sql = "SELECT * FROM JOB_T_CLIENT_DETAIL "
+	private final String sql = "SELECT * FROM SYS_T_CLIENT_DETAIL "
 			+" where STATUS = 'A' "
 			+" and ISSUER = :ISSUER ";
 	@Override
