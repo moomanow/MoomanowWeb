@@ -39,7 +39,7 @@
 			<result name="success" type="redirectAction">{1}-start</result>
 		</action>
 
-		<action name="home-{}" class="homeExAction" method="{1}" >
+		<action name="homeEx-{}" class="homeExAction" method="{1}" >
 			<interceptor-ref name="homeScopeStack" />
 			<result name="home.init" type="tiles">home.init</result>
 			<allowed-methods>init</allowed-methods>

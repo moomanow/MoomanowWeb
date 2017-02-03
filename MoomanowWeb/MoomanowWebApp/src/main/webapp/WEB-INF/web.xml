@@ -7,6 +7,19 @@
 	<listener>
 		<listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
 	</listener>
+	
+    <context-param>
+	    <param-name>org.apache.tiles.definition.DefinitionsFactory.DEFINITIONS_CONFIG</param-name>
+	    <param-value>
+<!-- 		    /WEB-INF/tiles/prj-tiles.xml -->
+			/tiles/tiles-prj.xml
+		    ,/tiles/tiles-common.xml
+		    ,/tiles/tiles-home.xml
+		    ,/tiles/tiles-login.xml
+		    
+
+	    </param-value>
+  </context-param>
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
