@@ -7,6 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.mitre.oauth2.model.RegisteredClient;
 import org.mitre.openid.connect.client.service.RegisteredClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 
 import com.moomanow.core.common.exception.NonRollBackException;
 import com.moomanow.core.common.exception.RollBackException;
@@ -15,8 +16,12 @@ import com.moomanow.web.security.openid.dao.OpenIdDao;
 public class RegisteredClientServiceImpl implements RegisteredClientService {
 
 	private Map<String, RegisteredClient> clients = new ConcurrentHashMap<>();
-	@Autowired
 	private OpenIdDao openIdDao;
+	@Autowired
+	@Required
+	public void setOpenIdDao(OpenIdDao openIdDao) {
+		this.openIdDao = openIdDao;
+	}
 	
 	@Override
 	public RegisteredClient getByIssuer(String issuer) {
