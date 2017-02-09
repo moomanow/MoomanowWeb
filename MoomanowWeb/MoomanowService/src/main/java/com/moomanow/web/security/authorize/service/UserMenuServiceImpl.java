@@ -7,8 +7,8 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.moomanow.authentication.bean.UserAuthenticationBean;
 import com.moomanow.core.common.bean.ActionBean;
-import com.moomanow.core.common.bean.UserBean;
 import com.moomanow.core.common.exception.NonRollBackException;
 import com.moomanow.core.common.exception.RollBackException;
 import com.moomanow.core.common.processhandler.IProcessResult;
@@ -31,7 +31,7 @@ public class UserMenuServiceImpl implements UserMenuService {
 	@Autowired
 	private ConfigService configService;
 	@Override
-	public IProcessResult<MenuVO> generateMenuList(UserBean userBean) throws NonRollBackException, RollBackException {
+	public IProcessResult<MenuVO> generateMenuList(UserAuthenticationBean userBean) throws NonRollBackException, RollBackException {
 		return generateMenuList(userBean.getPrivileges());
 	}
 	@Override

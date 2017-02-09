@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 
+import com.moomanow.authentication.bean.UserAuthenticationBean;
 import com.moomanow.core.common.bean.UserBean;
 import com.moomanow.core.common.exception.NonRollBackException;
 import com.moomanow.core.common.exception.NonRollBackProcessException;
@@ -58,8 +59,8 @@ public class LoginServiceImpl implements LoginService  {
 					
 				}
 				UserBean userBean =  userOpenIdDao.findUserByIdUser(Long.parseLong(sub));
-				IProcessResult<UserBean> serviceResult = userAuthorizeService.addRolesUser(userBean);
-				userBean = serviceResult.getResult();
+				IProcessResult<UserAuthenticationBean> serviceResult = userAuthorizeService.addRolesUser((UserAuthenticationBean)userBean);
+				userBean = (UserBean)serviceResult.getResult();
 				IProcessResult<MenuVO> serviceResultMenu = userMenuService.generateMenuList(serviceResult.getResult());
 				loginIO.setUserBean(userBean);
 				loginIO.setMenuVO(serviceResultMenu.getResult());
@@ -76,9 +77,9 @@ public class LoginServiceImpl implements LoginService  {
 		LoginIO loginIO = new LoginIOBean();
 		IProcessResult<UserBean> serviceResult = authenService.login(user, password);
 		UserBean userBean =  serviceResult.getResult();
-		serviceResult = userAuthorizeService.addRolesUser(userBean);
+		IProcessResult<UserAuthenticationBean> serviceUserAuthenticationBeanResult  = userAuthorizeService.addRolesUser((UserAuthenticationBean)userBean);
 		userBean = serviceResult.getResult();
-		IProcessResult<MenuVO> serviceResultMenu = userMenuService.generateMenuList(serviceResult.getResult());
+		IProcessResult<MenuVO> serviceResultMenu = userMenuService.generateMenuList(serviceUserAuthenticationBeanResult.getResult());
 		loginIO.setUserBean(userBean);
 		loginIO.setMenuVO(serviceResultMenu.getResult());
 		Map<String, Object> session = new HashMap<String, Object>();
@@ -86,7 +87,7 @@ public class LoginServiceImpl implements LoginService  {
 		return new ProcessResult<LoginIO>(loginIO);
 	}
 	@Override
-	public IProcessResult<LoginIO> performLoginAndPutDataSession(UserBean userBean, IUserDefault userDefault)
+	public IProcessResult<LoginIO> performLoginAndPutDataSession(UserAuthenticationBean userBean, IUserDefault userDefault)
 			throws NonRollBackException, RollBackException {
 		// TODO Auto-generated method stub
 		return null;

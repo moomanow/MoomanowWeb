@@ -5,6 +5,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 
+import com.moomanow.authentication.bean.UserAuthenticationBean;
 import com.moomanow.core.common.bean.UserBean;
 import com.moomanow.core.common.exception.NonRollBackException;
 import com.moomanow.core.common.exception.RollBackException;
@@ -24,7 +25,7 @@ public class UserAuthorizeServiceImpl implements UserAuthorizeService {
 		this.userAuthorizeDao = userAuthorizeDao;
 	}
 	@Override
-	public IProcessResult<UserBean> addRolesUser(UserBean userBean) throws NonRollBackException, RollBackException {
+	public IProcessResult<UserAuthenticationBean> addRolesUser(UserAuthenticationBean userBean) throws NonRollBackException, RollBackException {
 		Set<String> roles = userAuthorizeDao.getUserRoles(userBean.getUserId());
 		if(roles.size()<=0){
 			throw new RollBackProcessException(ProMessageCode.ATZ2002);
@@ -32,7 +33,7 @@ public class UserAuthorizeServiceImpl implements UserAuthorizeService {
 		Set<String> privileges = userAuthorizeDao.getUserPrivileges(userBean.getUserId());
 		userBean.setRoles(roles);
 		userBean.setPrivileges(privileges);
-		return new ProcessResult<UserBean>(userBean);
+		return new ProcessResult<UserAuthenticationBean>(userBean);
 	}
 
 }

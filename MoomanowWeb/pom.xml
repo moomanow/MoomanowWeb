@@ -320,6 +320,11 @@
 			<groupId>com.moomanow</groupId>
 			<artifactId>moomanow-oauth2</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.moomanow</groupId>
+			<artifactId>moomanow-authentication</artifactId>
+			<version>0.0.8</version>
+		</dependency>
 	</dependencies>
 
 	<build>

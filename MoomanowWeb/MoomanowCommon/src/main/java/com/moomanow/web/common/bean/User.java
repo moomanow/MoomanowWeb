@@ -15,6 +15,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.moomanow.authentication.bean.UserAuthenticationBean;
 import com.moomanow.core.common.bean.UserBean;
 
 
@@ -25,7 +26,7 @@ import com.moomanow.core.common.bean.UserBean;
 @Entity
 @Table(name="SYS_M_USER")
 @NamedQuery(name="User.findAll", query="SELECT u FROM User u")
-public class User implements Serializable,UserBean {
+public class User implements Serializable,UserBean,UserAuthenticationBean {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -199,46 +200,25 @@ public class User implements Serializable,UserBean {
 	}
 
 	@Transient
-	@Override
 	public void setUserId(String userId) {
 		this.idUser = userId;
 	}
 
 	@Transient
-	@Override
 	public String getUserName() {
 		return username;
 	}
 
 	@Transient
-	@Override
 	public void setUserName(String userName) {
 		this.username =userName;
 	}
 
 
 	@Transient
-	@Override
 	public Set<String> getRoles() {
 		return roles;
 	}
-
-
-
-	@Transient
-	@Override
-	public String getUserImagePath() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Transient
-	@Override
-	public void setUserImagePath(String userImagePath) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 	
 	public String getName() {
