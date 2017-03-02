@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>com.moomanow.web</groupId>
 	<artifactId>MoomanowWeb</artifactId>
-	<version>0.0.9</version>
+	<version>0.0.10</version>
 	<packaging>pom</packaging>
 	<modules>
 		<module>MoomanowCommon</module>
@@ -289,7 +289,7 @@
 	<properties>
 		<java-version>1.8</java-version>
 		<org.slf4j-version>1.7.21</org.slf4j-version>
-		<com.moomanow-version>0.0.9</com.moomanow-version>
+		<com.moomanow-version>0.0.10</com.moomanow-version>
 		<org.apache.struts-version>2.5.2</org.apache.struts-version>
 		<org.springframework-version>4.3.6.RELEASE</org.springframework-version>
 
@@ -318,7 +318,6 @@
 		<dependency>
 			<groupId>com.moomanow</groupId>
 			<artifactId>moomanow-authentication</artifactId>
-			<version>0.0.8</version>
 		</dependency>
 	</dependencies>
 
